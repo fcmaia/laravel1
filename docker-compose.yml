@@ -1,0 +1,57 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:5.7
+    command: --innodb-use-native-aio=0
+    container_name: db
+    restart: always
+    tty: true
+    environment:
+      - MYSQL_DATABASE=laravel
+      - MYSQL_ROOT_PASSWORD=root
+    ports: 
+      - 3306:3306
+    volumes: 
+      - ./.docker/dbdata:/var/lib/mysql
+    networks: 
+      - mynetwork
+    
+  app:
+    build: .docker/app
+    container_name: app
+    tty: true
+    depends_on:
+      - db
+    ports:
+      - 9000:9000
+      - 8000:8000
+    volumes: 
+      - .:/var/www
+    networks: 
+      - mynetwork
+
+  nginx:
+    build: .docker/nginx
+    container_name: nginx
+    tty: true
+    depends_on: 
+      - app
+    ports:
+      - 8888:80
+    volumes: 
+      - .:/var/www
+    networks: 
+      - mynetwork
+    
+  redis:
+    image: redis:alpine
+    container_name: redis
+    expose: 
+      - 6379
+    networks: 
+      - mynetwork
+
+networks: 
+  mynetwork:
+    driver: bridge
