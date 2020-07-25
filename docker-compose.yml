@@ -11,21 +11,20 @@ services:
       - MYSQL_DATABASE=laravel
       - MYSQL_ROOT_PASSWORD=root
     ports: 
-      - 3306:3306
+      - 33006:3306
     volumes: 
       - ./.docker/dbdata:/var/lib/mysql
     networks: 
       - mynetwork
     
   app:
-    build: .docker/app
+    build: .
     container_name: app
     tty: true
     depends_on:
       - db
     ports:
       - 9000:9000
-      - 8000:8000
     volumes: 
       - .:/var/www
     networks: 
@@ -38,7 +37,7 @@ services:
     depends_on: 
       - app
     ports:
-      - 8080:80
+      - 8000:80
     volumes: 
       - .:/var/www
     networks: 
@@ -55,3 +54,4 @@ services:
 networks: 
   mynetwork:
     driver: bridge
+
