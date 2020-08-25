@@ -4,6 +4,10 @@ steps:
   name: 'gcr.io/$PROJECT_ID/docker-compose'
   args: ['-f','docker-compose-cloudbuild.yml','up','-d']
 
+- id: "Chown in /var/www"
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['exec','-u','root','-t','app','chown','-R','www-data:www-data','/var/www']
+
 - id: "Running PS"
   name: 'gcr.io/cloud-builders/docker'
   args: ['ps']  
@@ -14,7 +18,7 @@ steps:
 
 - id: "Copying .env"
   name: 'gcr.io/cloud-builders/docker'
-  args: ['exec','-t','app','cp','.env.example','.env']    
+  args: ['exec','-t','app','cp','-f','.env.example','.env']    
 
 - id: "Running key:generate"
   name: 'gcr.io/cloud-builders/docker'
