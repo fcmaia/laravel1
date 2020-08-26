@@ -20,10 +20,6 @@ steps:
   name: 'gcr.io/cloud-builders/docker'
   args: ['exec','-t','app','cp','-f','.env.example','.env']    
 
-- id: "Granting mysql access"
-  name: 'gcr.io/cloud-builders/docker'
-  args: ['exec','-t','db','mysql','-e','"${MYSQL_GRANT_SQL}"']    
-
 - id: "Running key:generate"
   name: 'gcr.io/cloud-builders/docker'
   args: ['exec','-t','app','php','/var/www/artisan','key:generate']    

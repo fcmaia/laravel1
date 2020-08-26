@@ -10,7 +10,6 @@ services:
     environment:
       - MYSQL_DATABASE=laravel
       - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_GRANT_SQL=grant all on laravel.* to root@'%'; flush privileges;
     ports: 
       - 33006:3306
     volumes: 
