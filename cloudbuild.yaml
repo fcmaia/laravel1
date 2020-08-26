@@ -20,6 +20,10 @@ steps:
   name: 'gcr.io/cloud-builders/docker'
   args: ['exec','-t','app','mkdir','-p','/var/www/bootstrap/cache']
 
+- id: "Chmod /var/www/storage"
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['exec','-u','root','-t','app','chmod','1777','/var/www/bootstrap/cache','-R']
+
 - id: "Running composer"
   name: 'gcr.io/cloud-builders/docker'
   args: ['exec','-t','app','composer','install']  
