@@ -32,6 +32,11 @@ steps:
   name: 'gcr.io/cloud-builders/docker'
   args: ['exec','-u','root','-t','app','cp','-f','.env.example','.env']    
 
+- id: "Chown .env"
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['exec','-u','root','-t','app','chown','www-data.www-data','.env']
+
+
 - id: "Running key:generate"
   name: 'gcr.io/cloud-builders/docker'
   args: ['exec','-t','app','php','/var/www/artisan','key:generate']    
