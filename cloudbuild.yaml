@@ -36,6 +36,9 @@ steps:
   name: 'gcr.io/cloud-builders/docker'
   args: ['exec','-u','root','-t','app','chown','www-data.www-data','.env']
 
+- id: "Chown /var/www"
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['exec','-u','root','-t','app','chown','www-data.www-data','/var/www']
 
 - id: "Running key:generate"
   name: 'gcr.io/cloud-builders/docker'
