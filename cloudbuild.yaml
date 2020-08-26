@@ -22,7 +22,7 @@ steps:
 
 - id: "Granting mysql access"
   name: 'gcr.io/cloud-builders/docker'
-  args: ['exec','-t','db','mysql','-e','"grant all on ${MYSQL_DATABASE}.* to root@\'%\'; flush privileges;"']    
+  args: ['exec','-t','db','mysql','-e','"${MYSQL_GRANT_SQL}"']    
 
 - id: "Running key:generate"
   name: 'gcr.io/cloud-builders/docker'
