@@ -33,5 +33,5 @@ USER www-data
 
 EXPOSE 9000
 
-ENTRYPOINT ["/entrypoint2.sh"]
-#ENTRYPOINT ["php-fpm","-F","-O"]
+#ENTRYPOINT ["/entrypoint2.sh"]
+ENTRYPOINT ["php-fpm","-F","-O"]
