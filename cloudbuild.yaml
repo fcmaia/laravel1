@@ -22,7 +22,7 @@ steps:
 
 - id: "Chmod /var/www/bootstrap/cache"
   name: 'gcr.io/cloud-builders/docker'
-  args: ['exec','-t','app','chmod','1777','/var/www/bootstrap/cache','-R']
+  args: ['exec','-u','root','-t','app','chmod','1777','/var/www/bootstrap/cache','-R']
 
 - id: "Running composer"
   name: 'gcr.io/cloud-builders/docker'
