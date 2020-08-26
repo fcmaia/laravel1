@@ -1,6 +1,6 @@
 FROM php:7.3.6-fpm-alpine3.9
 
-COPY ./entrypoint.sh /
+COPY ./entrypoint2.sh /
 RUN apk add bash mysql-client zlib-dev libzip libzip-dev
 RUN apk add --no-cache shadow
 #RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
