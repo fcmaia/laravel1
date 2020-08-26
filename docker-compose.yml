@@ -18,7 +18,8 @@ services:
       - mynetwork
     
   app:
-    image: fcmaia/laravel-app
+    #image: fcmaia/laravel-app
+    build: .
     container_name: app
     tty: true
     depends_on:
