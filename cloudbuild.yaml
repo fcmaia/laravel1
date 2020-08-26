@@ -12,6 +12,14 @@ steps:
   name: 'gcr.io/cloud-builders/docker'
   args: ['ps']  
 
+- id: "Running ip addr"
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['ip -4 addr']  
+
+- id: "Running host db"
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['host db']  
+
 - id: "Running composer"
   name: 'gcr.io/cloud-builders/docker'
   args: ['exec','-t','app','composer','install']  
