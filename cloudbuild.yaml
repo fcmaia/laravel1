@@ -8,7 +8,7 @@ steps:
   name: 'gcr.io/cloud-builders/docker'
   args: ['exec','-u','root','-t','app','chown','-R','www-data:www-data','/var/www/.env']
 
-- id: "Chown in /var/www"
+- id: "Chown in /var/www/storage"
   name: 'gcr.io/cloud-builders/docker'
   args: ['exec','-u','root','-t','app','chown','-R','www-data:www-data','/var/www/storage']
 
