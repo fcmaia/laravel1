@@ -12,14 +12,6 @@ steps:
   name: 'gcr.io/cloud-builders/docker'
   args: ['ps']  
 
-- id: "Running ip addr"
-  name: 'gcr.io/cloud-builders/docker'
-  args: ['ip -4 addr']  
-
-- id: "Running host db"
-  name: 'gcr.io/cloud-builders/docker'
-  args: ['host db']  
-
 - id: "Running composer"
   name: 'gcr.io/cloud-builders/docker'
   args: ['exec','-t','app','composer','install']  
@@ -27,6 +19,10 @@ steps:
 - id: "Copying .env"
   name: 'gcr.io/cloud-builders/docker'
   args: ['exec','-t','app','cp','-f','.env.example','.env']    
+
+- id: "Granting mysql access"
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['exec','-t','db','mysql','-e','"grant all on ${MYSQL_DATABASE}.* to root@\'%\'; flush privileges;"']    
 
 - id: "Running key:generate"
   name: 'gcr.io/cloud-builders/docker'
