@@ -4,10 +4,6 @@ steps:
   name: 'gcr.io/$PROJECT_ID/docker-compose'
   args: ['-f','docker-compose-cloudbuild.yml','up','-d']
 
-- id: "Chown in /var/www"
-  name: 'gcr.io/cloud-builders/docker'
-  args: ['exec','-u','root','-t','app','chown','-R','www-data:www-data','/var/www/.env']
-
 - id: "Chown in /var/www/storage"
   name: 'gcr.io/cloud-builders/docker'
   args: ['exec','-u','root','-t','app','chown','-R','www-data:www-data','/var/www/storage']
