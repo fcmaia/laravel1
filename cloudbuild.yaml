@@ -14,7 +14,7 @@ steps:
 
 - id: "Chmod /var/www/storage/cache"
   name: 'gcr.io/cloud-builders/docker'
-  args: ['exec','-u','root','-t','app','chmod','0777','/var/www/storage/cache','-R']
+  args: ['exec','-u','root','-t','app','chmod','0777','/var/www/storage','-R']
 
 - id: "Running composer"
   name: 'gcr.io/cloud-builders/docker'
