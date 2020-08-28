@@ -1,7 +1,7 @@
 <p align="center">
 <img class="mark" src="https://laravel.com/img/logomark.min.svg" alt="Laravel">
 <img class="type" src="https://laravel.com/img/logotype.min.svg" alt="Laravel">
-</p>
+</p>*
 
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
