@@ -1,4 +1,7 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+<p align="center">
+<img class="mark" src="https://laravel.com/img/logomark.min.svg" alt="Laravel">
+<img class="type" src="https://laravel.com/img/logotype.min.svg" alt="Laravel">
+</p>*
 
 <p align="center">
 <a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
